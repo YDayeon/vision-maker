@@ -1,10 +1,7 @@
 import Head from "next/head";
-import { CgMenu } from "react-icons/cg";
-import { HiOutlineHome } from "react-icons/hi";
-import { TbCalendar } from "react-icons/tb";
-import { MdOutlineFactCheck } from "react-icons/md";
 import { useState } from "react";
 import NavBar from "src/components/Navbar";
+import TimeContainer from "src/components/Time-Box";
 
 export default function Home() {
   const [isFold, setIsFold] = useState(false);
@@ -21,11 +18,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="w-screen h-screen flex">
         <NavBar />
-        <h1 className="text-3xl font-bold underline text-orange">
-          Hello world!
-        </h1>
+        <section className="relative">
+          <header>
+            <h1>GOAL</h1>
+            <h3 className="flex gap-2">
+              <div>#succecss</div>
+              <div>#save money</div>
+            </h3>
+          </header>
+          <section>
+            <article>
+              <TimeContainer />
+            </article>
+            <article></article>
+            <article></article>
+          </section>
+        </section>
       </main>
     </>
   );
