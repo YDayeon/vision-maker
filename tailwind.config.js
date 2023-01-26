@@ -5,10 +5,13 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      height: {
+        200: "50rem",
+      },
       transitionProperty: {
         width: "width",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };

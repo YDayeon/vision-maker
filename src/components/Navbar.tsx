@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`bg-slate-300 fixed h-full px-5 transition-all duration-500 ease-in-out w-52 ${
+      className={`bg-slate-300 h-full px-5 transition-all duration-500 ease-in-out w-52 ${
         isFold && "bg-slate-600 w-fit"
       }`}
     >
