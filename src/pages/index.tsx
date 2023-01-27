@@ -1,15 +1,7 @@
 import Head from "next/head";
-import { useState } from "react";
-import NavBar from "src/components/Navbar";
 import TimeContainer from "src/components/Time-Box";
 
 export default function Home() {
-  const [isFold, setIsFold] = useState(false);
-
-  const handleClick = () => {
-    setIsFold(!isFold);
-  };
-
   return (
     <>
       <Head>
@@ -18,22 +10,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-screen h-screen flex">
-        <NavBar />
-        <section className="relative">
+      <main>
+        <section className="px-10 pt-5">
           <header>
-            <h1>GOAL</h1>
-            <h3 className="flex gap-2">
-              <div>#succecss</div>
-              <div>#save money</div>
-            </h3>
+            <h1>
+              MY VISION. <strong>"Go abroad"</strong>
+            </h1>
+            <h2 className="flex gap-2">
+              <span>#succecss</span>
+              <span>#save money</span>
+            </h2>
           </header>
-          <section>
+          <section className="flex justify-between">
             <article>
+              <h3>Plan</h3>
               <TimeContainer />
             </article>
-            <article></article>
-            <article></article>
+            <article>
+              <h3>Now</h3>
+              <TimeContainer />
+            </article>
+            <article>
+              <h3>Change</h3>
+              <TimeContainer />
+            </article>
           </section>
         </section>
       </main>
