@@ -1,10 +1,11 @@
-import CalendarComponent from "src/components/calendar";
+import { CalendarPageContainer, CalendarPageSection } from "@/styles/Calendar";
+import ManageCalendarForm from "src/components/calendar/manage-form";
+import MonthlyCalendar from "src/components/calendar/month";
 
 export default function CalendarPage() {
   return (
-    <main>
-      <h1>January</h1>
-      <CalendarComponent />
-    </main>
+    <CalendarPageContainer>
+      <MonthlyCalendar />
+    </CalendarPageContainer>
   );
 }

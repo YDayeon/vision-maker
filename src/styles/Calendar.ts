@@ -1,26 +1,48 @@
+import { IPriority } from "src/types/calendar";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-export const SCalendarContainer = styled.div`
-  .react-calendar {
-    ${tw`border-none w-4/6`}
-  }
-  .react-calendar__navigation__next2-button,
-  .react-calendar__navigation__prev2-button {
-    ${tw`hidden`}
-  }
-  .react-calendar__month-view__weekdays__weekday {
-    ${tw`border-b border-r border-blue-300`}
-    :last-child {
-      ${tw`border-r-0`}
-    }
-    abbr {
-      ${tw`no-underline`}
-    }
-  }
-  .react-calendar__month-view__days {
-    button {
-      ${tw`border-b border-r border-slate-300 border-solid h-24 flex`}
-    }
+export const CalendarPageContainer = tw.main`
+  px-10
+`;
+export const CalendarPageSection = tw.section`
+  flex
+`;
+
+export const SDaysContainer = styled.div`
+  ${tw`flex w-full bg-blue-100`}
+  div {
+    ${tw`w-1/7 text-center h-8`}
   }
 `;
+export const SDateRow = tw.div`
+  flex
+`;
+export const DateContainer = tw.div`
+  w-1/7
+  h-28
+ bg-blue-200
+  hover:bg-blue-500
+`;
+
+export const SCalendarContainer = styled.div``;
+
+export const CalendarManageForm = styled.form`
+  .button_container {
+    ${tw`flex justify-end gap-0.5`}
+  }
+  div {
+    ${tw`flex gap-1`}
+  }
+  footer {
+    ${tw`flex justify-center`}
+  }
+`;
+export const PriorityButton = styled.button<IPriority>(({ priority }) => [
+  priority === "high"
+    ? tw`bg-red-500`
+    : priority === "medium"
+    ? tw`bg-amber-400`
+    : tw`bg-emerald-500`,
+  tw`w-5 h-5 rounded-full`,
+]);
