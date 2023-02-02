@@ -1,4 +1,17 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [["styled-components", { "ssr": true }]]
+  "presets": ["next/babel", "@babel/typescript"],
+  "plugins": [
+    "@babel/proposal-object-rest-spread",
+    "babel-plugin-styled-components",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@": "./src"
+        },
+        "extensions": [".js", ".jsx", ".tsx"]
+      }
+    ]
+  ]
 }
