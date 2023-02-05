@@ -1,6 +1,6 @@
-import { IPriority } from "src/types/calendar";
-import styled from "styled-components";
-import tw from "twin.macro";
+import { IPriority } from 'src/types/calendar';
+import styled from 'styled-components';
+import tw from 'twin.macro';
 
 export const CalendarPageContainer = tw.main`
   px-10
@@ -39,9 +39,9 @@ export const CalendarManageForm = styled.form`
   }
 `;
 export const PriorityButton = styled.button<IPriority>(({ priority }) => [
-  priority === "high"
+  priority === 'high'
     ? tw`bg-red-500`
-    : priority === "medium"
+    : priority === 'medium'
     ? tw`bg-amber-400`
     : tw`bg-emerald-500`,
   tw`w-5 h-5 rounded-full`,
