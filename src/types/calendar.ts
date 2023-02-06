@@ -6,7 +6,7 @@ export type TDates = number[][];
 export type TRow = number[];
 
 export interface IDatesProps {
-  dates: TDates;
+  dates: TDates | undefined;
 }
 
 export type TGetLastDateFunc = (year: number, month: number) => number;

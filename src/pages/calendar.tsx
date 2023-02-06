@@ -1,6 +1,10 @@
-import { CalendarPageContainer, CalendarPageSection } from "@/styles/Calendar";
-import ManageCalendarForm from "src/components/calendar/manage-form";
-import MonthlyCalendar from "src/components/calendar/month";
+import MonthlyCalendar from 'src/components/calendar/month';
+import tw from 'twin.macro';
+
+const CalendarPageContainer = tw.main`
+  px-10
+  py-10
+`;
 
 export default function CalendarPage() {
   return (
