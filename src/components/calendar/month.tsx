@@ -52,7 +52,7 @@ const PriorityButton = styled.button<IPriority>(({ priority }) => [
 
 const SCalenderHeader = tw.header`
   flex
-  justify-center
+  justify-between
   gap-10
   mb-5
   text-2xl
@@ -79,11 +79,11 @@ export const DateList: React.FC<IDatesProps> = ({ dates }) => {
   return (
     <div>
       {dates?.map((row: TRow, i) => (
-        <SDateRow key={row[i] + i}>
+        <SDateRow key={i}>
           {row.map((date, i) => (
             <DateContainer
               onClick={() => handleClick(date)}
-              key={date + i}
+              key={i}
               isToday={todayDate === date}
               isSelect={date === selectedDate}
             >
@@ -97,13 +97,13 @@ export const DateList: React.FC<IDatesProps> = ({ dates }) => {
 };
 
 export default function MonthlyCalendar() {
-  const { dateArr, handleMonthBtn } = useCalendar();
+  const { dateArr, monthName, handleMonthBtn } = useCalendar();
 
   return (
     <SCalendarContainer>
       <SCalenderHeader>
         <button onClick={() => handleMonthBtn('prev')}>&lt;</button>
-        <span>JANUARY</span>
+        <span>{monthName}</span>
         <button onClick={() => handleMonthBtn('next')}>&gt;</button>
       </SCalenderHeader>
       <div>

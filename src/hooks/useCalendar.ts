@@ -8,32 +8,29 @@ export type TArgMonth = 'prev' | 'next';
 export default function useCalendar() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth());
+  const [monthName, setMonthName] = useState('');
   const [dateArr, setDateArr] = useState<TDates>();
 
   const handleMonthBtn = (arg: TArgMonth) => {
-    console.log(arg);
     let resultDate = new Date(year, month);
     if (arg === 'prev') {
-      let prevMonth = resultDate.setMonth(resultDate.getMonth() - 1);
-      setMonth(prevMonth);
-      if (resultDate.getMonth() - 1 < 0) {
-        let prevYear = resultDate.setFullYear(resultDate.getFullYear() - 1);
-        setYear(prevYear);
-      }
-    } else if (arg === 'next') {
-      let nextMonth = new Date(
-        resultDate.setMonth(resultDate.getMonth() + 1)
-      ).getMonth();
-      nextMonth === 0 ? setMonth(12) : setMonth(nextMonth);
-      console.log(month);
-      if (resultDate.getMonth() === 0) {
-        let nextYear = resultDate.setFullYear(resultDate.getFullYear() + 1);
-        setYear(nextYear);
-      }
+      let prevDate = new Date(resultDate.setMonth(resultDate.getMonth() - 1));
+      setMonth(prevDate.getMonth());
+      setYear(prevDate.getFullYear());
+    }
+    if (arg === 'next') {
+      let nextDate = new Date(resultDate.setDate(resultDate.getMonth() + 1));
+      setMonth(nextDate.getMonth() + 1);
+      setYear(nextDate.getFullYear());
     }
   };
 
   useEffect(() => {
+    setMonthName(
+      new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
+        new Date(year, month)
+      )
+    );
     let dayNo = getFirstDayOfMonth(2023, month);
     let weekNo = 0;
     let arr = new Array(6).fill(0).map(() => new Array(7).fill(0));
@@ -50,7 +47,7 @@ export default function useCalendar() {
     }
     if (arr[5][0] === 0) arr.pop();
     setDateArr(arr);
-  }, []);
+  }, [month, year]);
 
-  return { dateArr, handleMonthBtn };
+  return { dateArr, monthName, handleMonthBtn };
 }
